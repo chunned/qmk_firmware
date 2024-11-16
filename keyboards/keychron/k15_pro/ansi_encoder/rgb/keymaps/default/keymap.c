@@ -28,10 +28,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case MC_1:
         if (record->event.pressed) {
-            SEND_STRING("test");
+            register_code(KC_LSFT);
+            tap_code(KC_F10);
+            unregister_code(KC_LSFT);
         }
         break;
-    }
+    case MC_2:
+        if (record->event.pressed) {
+            register_code(KC_LSFT);
+            tap_code(KC_F9);
+            unregister_code(KC_LSFT);
+        }
+        break;
+    };
     return true;
 };
 
